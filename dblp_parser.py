@@ -6,7 +6,6 @@ import pandas as pd
 import json
 from lxml import etree
 import requests
-from hurry.filesize import size
 import gzip
 import shutil
 
@@ -139,7 +138,7 @@ class DBLP:
                     downloaded += len(data)
                     file.write(data)
                     done = int(50*downloaded/total)
-                    sys.stdout.write('\r[{}{}] {}/{}'.format('█' * done, '.' * (50-done), size(downloaded), size(total)))
+                    sys.stdout.write('\r[{}{}] {}/{}'.format('█' * done, '.' * (50-done), downloaded, total))
                     sys.stdout.flush()
                 sys.stdout.write('\n')
                 # self.__log_msg('[*] Done!')
